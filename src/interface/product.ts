@@ -1,6 +1,6 @@
 export interface interfaceProduct {
     id?: number;
-    timestamp: number;
+    // timestamp: number;
     name: string;
     description: string;
     code: string;

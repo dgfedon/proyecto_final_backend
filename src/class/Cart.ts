@@ -1,8 +1,22 @@
 import { promises as fs } from 'fs';
 import { interfaceCart } from '../interface/cart';
 import { interfaceProduct } from '../interface/product';
+import mongoose from 'mongoose';
 
-class Cart {
+
+
+const cartMongo = new mongoose.Schema<interfaceCart>(
+	{
+		products: [{type: mongoose.Schema.Types.ObjectId, ref: 'Product'}],
+	},
+	{
+		timestamps: true,
+	}
+);
+
+export const Cart = mongoose.model<interfaceCart>('Cart', cartMongo);
+
+/* class Cart {
 	static fileName = 'cart.json';
 
 	static async saveCart(): Promise<interfaceCart[]> {
@@ -131,4 +145,4 @@ class Cart {
     }
 }
 
-export default Cart;
+export default Cart; */

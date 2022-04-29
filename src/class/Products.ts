@@ -1,7 +1,35 @@
 import { promises as fs } from 'fs';
 import { interfaceProduct } from '../interface/product';
+import mongoose from 'mongoose';
 
-class Products {
+
+const productMongo = new mongoose.Schema<interfaceProduct>(
+    {
+        name: String,
+        price: {
+            type: Number,
+            required: true,
+        },
+        description: String,
+        img: String,
+        code: {
+            type: String,
+            required: true,
+        },
+        stock: {
+            type: Number,
+            required: true,
+            default: 1,
+        },
+    },
+    {
+        timestamps: true,
+    }
+);
+
+export const Product = mongoose.model<interfaceProduct>('Product', productMongo);
+
+/* class Products {
     static fileName = 'products.json';
 
 	static async fileData(): Promise<interfaceProduct[]> {
@@ -116,4 +144,4 @@ class Products {
     }
 }
 
-export default Products;
+export default Products; */
