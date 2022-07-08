@@ -1,21 +1,43 @@
-// import express from 'express';
+import compression from 'compression';
+import MongoStore from 'connect-mongo';
 import express, { Application } from 'express';
-import router from './routes';
-// import express from 'express';
-// const app = express();
+import session from 'express-session';
+import passport from 'passport';
+import { router } from '../routes';
 
-const createApp = (): Application => {
-    const app = express();
+export const createApp = (): Application => {
+  const app = express();
 
-    // Middleware 
-    app.use(express.static('public'));
-    app.use(express.json());
-    app.use(express.urlencoded({ extended: true }));
+  app.use(compression());
 
-    // Router base
-    app.use('/api', router);
+  app.use(express.static('public'));
 
-    return app;
-}
+  app.use(express.json());
+  app.use(express.urlencoded({ extended: true }));
 
-export default createApp;
+  app.use(
+    session({
+      secret: 'foo',
+      saveUninitialized: false,
+      resave: false,
+      cookie: {
+        maxAge: 1000 * 60 * 10,
+      },
+      store: MongoStore.create({
+        mongoUrl: process.env.MONGO_URI,
+        dbName: 'ecommerce',
+        collectionName: 'sessions',
+      }),
+    })
+  );
+
+  app.use(passport.authenticate('session'));
+
+  app.use('/api', router);
+
+  app.get('/health', (_req, res) => {
+    res.send('Running 1');
+  });
+
+  return app;
+};
