@@ -3,3 +3,4 @@ key
 build
 firebase-key.json
 .env
+dist

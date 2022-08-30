@@ -1,16 +1,29 @@
-import { promises as fs } from 'fs';
-import mongoose from 'mongoose';
-import path from 'path';
-import { ICart } from '../types/cart';
-import { IProduct } from '../types/product';
+import mongoose from "mongoose";
 
-const cartSchema = new mongoose.Schema<ICart>(
-  {
-    products: [{type: mongoose.Schema.Types.ObjectId, ref: 'Product'}],
-  },
-  {
-    timestamps: true,
-  }
-);
+const CARTS_COLLECTION = 'carts';
 
-export const Cart = mongoose.model<ICart>('Cart', cartSchema);
+export interface Cart {
+    id?: string,
+    timestamp?: string,
+    productos: ProductInCart[],
+}
+
+export interface ProductInCart {
+    productId: string,
+    quantity: number, 
+}
+
+const CartSchema = new mongoose.Schema({
+    timestamp: {
+        type: String,
+        required: true,
+    },
+    productos: {
+        type: [{ 
+            productId: { type: String },
+            quantity: { type: Number }
+        }],
+    }
+});
+
+export default mongoose.model(CARTS_COLLECTION, CartSchema);

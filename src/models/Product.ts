@@ -1,28 +1,56 @@
 import mongoose from 'mongoose';
-import { IProduct } from '../types/product';
 
-const productSchema = new mongoose.Schema<IProduct>(
-  {
-    name: String,
-    price: {
-      type: Number,
-      required: true,
+const PRODUCTS_COLLECTION = 'products';
+
+export interface Product {
+    id?: string,
+    timestamp: string,
+    nombre: string,
+    description: string,
+    codigo: string,
+    foto: string,
+    precio: number,
+    stock: number,  
+    quantity?: number,  
+}
+
+const ProductSchema = new mongoose.Schema({
+    id: {
+        type: String,
+        required: false,
     },
-    description: String,
-    image: String,
-    code: {
-      type: String,
-      required: true,
+    timestamp: {
+        type: String,
+        required: true,
+    },
+    nombre: {
+        type: String,
+        required: true,
+    },
+    description: {
+        type: String,
+        required: true,
+    },
+    codigo: {
+        type: String,
+        required: true,
+    },
+    foto: {
+        type: String,
+        required: true,
+    },
+    precio: {
+        type: Number,
+        required: true,
     },
     stock: {
-      type: Number,
-      required: true,
-      default: 1,
+        type: Number,
+        required: true,
     },
-  },
-  {
-    timestamps: true,
-  }
-);
+    quantity: {
+        type: Number,
+        required: false,
+    }
+});
 
-export const Product = mongoose.model<IProduct>('Product', productSchema);
+export default mongoose.model(PRODUCTS_COLLECTION, ProductSchema);

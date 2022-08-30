@@ -1,0 +1,62 @@
+[
+  {
+    "nombre": "Barra de Led",
+    "description": "DRL COB 17 cm de largo x 1,7 cm de ancho, cables de 55 cm de largo.",
+    "codigo": "264791",
+    "foto": "https://res.cloudinary.com/datafordgf/image/upload/v1639344547/proyecto_led_store/luces_led_bg_v34g7c.jpg",
+    "precio": 3000,
+    "stock": 20,
+    "timestamp": "2022-08-22T05:02:15.109Z",
+    "id": "1",
+  },
+  {
+    "nombre": "Tira de Led",
+    "description": "Tira de luces led, longitud de 2 m, longitud cable USB: 1 Metro, 55 focos Led.",
+    "codigo": "25173",
+    "foto": "https://res.cloudinary.com/datafordgf/image/upload/v1639344547/proyecto_led_store/bg_pink_ujveyj.jpg",
+    "precio": 1350,
+    "stock": 55,
+    "timestamp": "2022-08-22T05:02:39.821Z",
+    "id": "2"
+  },
+  {
+    "nombre": "Cartel Luminoso",
+    "description": "Crea frases y personaliza tus mensajes de una forma divertida y atractiva.",
+    "codigo": "36197",
+    "foto": "https://res.cloudinary.com/datafordgf/image/upload/v1639344547/proyecto_led_store/frase_led_bg_ckhcpw.jpg",
+    "precio": 400,
+    "stock": 30,
+    "timestamp": "2022-08-22T04:07:09.464Z",
+    "id": "3"
+  },
+  {
+    "nombre": "Figuras Rígidas",
+    "description": "Luces de Neón LED con estructura rígida de plástico de alta densidad y diferentes formas, puedes personalizarlo.",
+    "codigo": "145879",
+    "foto": "https://res.cloudinary.com/datafordgf/image/upload/v1639344547/proyecto_led_store/x_led_bg_v22pai.jpg",
+    "precio": 2100,
+    "stock": 25,
+    "timestamp": "2022-08-22T04:11:16.825Z",
+    "id": "4"
+  },
+  {
+    "nombre": "Guirnalda de Luces",
+    "description": "Tira lineal de 100 leds de 9 mts (con enchufe).",
+    "codigo": "24839",
+    "foto": "https://res.cloudinary.com/datafordgf/image/upload/v1639344548/proyecto_led_store/luces_anana_led_pjqtw2.jpg",
+    "precio": 400,
+    "stock": 30,
+    "timestamp": "2022-08-28T23:34:52.037Z",
+    "id": "5"
+  },
+  {
+    "nombre": "Cartel Neón Led",
+    "description": "Base routeada en mdf línea simple de neón led en 22 cm de altura x 97 cm de ancho aprox.",
+    "codigo": "25816",
+    "foto": "https://res.cloudinary.com/datafordgf/image/upload/v1639344547/proyecto_led_store/letras_led_bg_mqewo6.jpg",
+    "precio": 200,
+    "stock": 10,
+    "timestamp": "2022-08-22T23:38:47.869Z",
+    "id": "6"
+  }
+]
